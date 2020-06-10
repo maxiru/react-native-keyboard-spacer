@@ -22,18 +22,32 @@ const styles = StyleSheet.create({
 });
 
 // From: https://medium.com/man-moon/writing-modern-react-native-ui-e317ff956f02
-const defaultAnimation = {
-  duration: 500,
-  create: {
-    duration: 300,
-    type: LayoutAnimation.Types.easeInEaseOut,
-    property: LayoutAnimation.Properties.opacity
+const defaultAnimation = Platform.select({
+  ios: {
+    duration: 500,
+    create: {
+      duration: 300,
+      type: LayoutAnimation.Types.easeInEaseOut,
+      property: LayoutAnimation.Properties.opacity
+    },
+    update: {
+      type: LayoutAnimation.Types.spring,
+      springDamping: 200
+    }
   },
-  update: {
-    type: LayoutAnimation.Types.spring,
-    springDamping: 200
+  android: {
+    duration: 500,
+    create: {
+      duration: 300,
+      type: LayoutAnimation.Types.easeInEaseOut,
+      property: LayoutAnimation.Properties.opacity
+    },
+    update: {
+      duration: 1,
+      type: LayoutAnimation.Types.linear,
+    }
   }
-};
+});
 
 export default class KeyboardSpacer extends Component {
   static propTypes = {
