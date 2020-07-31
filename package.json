@@ -1,6 +1,6 @@
 {
   "name": "@maxiru/react-native-keyboard-spacer",
-  "version": "0.4.2",
+  "version": "0.4.3",
   "description": "Plug and play react-Native keyboard spacer view.",
   "main": "KeyboardSpacer.js",
   "publishConfig": {
